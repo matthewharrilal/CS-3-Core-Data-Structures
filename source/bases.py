@@ -18,6 +18,13 @@ def decode(digits, base):
     # Handle up to base 36 [0-9a-z]
     assert 2 <= base <= 36, 'base is out of range: {}'.format(base)
     # TODO: Decode digits from binary (base 2)
+    one_digit_dictionary = {}
+    array_of_digits = list(digits)
+    for index, digit in enumerate(array_of_digits):
+        if digit == 1:
+            one_digit_dictionary["The index: %s"%(index)] = digit
+
+
     # ...
     # TODO: Decode digits from hexadecimal (base 16)
     # ...
