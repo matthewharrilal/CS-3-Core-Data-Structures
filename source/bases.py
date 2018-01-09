@@ -10,27 +10,9 @@ import string
 # string.printable is digits + ascii_letters + punctuation + whitespace
 
 
-# def transform_letter_into_integer(letter):
-#     hex_dict = {'A': 10, 'B': 11, 'C': 12, 'D': 13, 'E': 14, 'F': 15}
-#     return hex_dict[letter]
-
-
-# def decode(digits):
-#     hexadecimal_digit_list = list(digits)
-
-#     hexadecimal_count = 0
-
-#     len_of_hexadecimal_digit_list = len(hexadecimal_digit_list)
-#     # pdb.set_trace()
-#     for index, hexdigit in enumerate(hexadecimal_digit_list):
-#         power_position = len_of_hexadecimal_digit_list - index
-#         if type(hexdigit) == str:
-#             hexadecimal_count += (2 ** (power_position - 1) * transform_letter_into_integer(hexdigit))
-#         else:
-#             print(type(hexdigit))
-#             hexadecimal_count += (2 ** (power_position - 1) * hexdigit)
-
-#     return hexadecimal_count
+def transform_letter_into_integer(letter):
+    hex_dict = {'A': 10, 'B': 11, 'C': 12, 'D': 13, 'E': 14, 'F': 15}
+    return hex_dict[letter]
 
 def decode(digits, base):
     """Decode given digits in given base to number in base 10.
@@ -68,15 +50,32 @@ def decode(digits, base):
 
     for index, hexdigit in enumerate(hexadecimal_digit_list):
         power_position = len_of_hexadecimal_digit_list - index
-        # hexadecimal_count += (2 ** (power_position - 1) * hexdigit)
-        for key, value in hex_dict.items():
-            if hexdigit == key:
-                hexadecimal_count += (2 ** (power_position - 1) ** value)
+        if type(hexdigit) == str:
+            hexadecimal_count +=  (2 ** (power_position - 1) * transform_letter_into_integer(hexdigit))
+        else:
+            hexadecimal_count += (2 ** (power_position - 1) * hexdigit)
     return hexadecimal_count
 
     # ...
     # TODO: Decode digits from any base (2 up to 36)
     # ...
+
+# def decode(digits):
+#     hexadecimal_digit_list = list(digits)
+
+#     hexadecimal_count = 0
+
+#     len_of_hexadecimal_digit_list = len(hexadecimal_digit_list)
+#     # pdb.set_trace()
+#     for index, hexdigit in enumerate(hexadecimal_digit_list):
+#         power_position = len_of_hexadecimal_digit_list - index
+#         if type(hexdigit) == str:
+#             hexadecimal_count += (2 ** (power_position - 1) * transform_letter_into_integer(hexdigit))
+#         else:
+#             print(type(hexdigit))
+#             hexadecimal_count += (2 ** (power_position - 1) * hexdigit)
+
+#     return hexadecimal_count
 
 
 def encode(number, base):
