@@ -18,15 +18,34 @@ def decode(digits, base):
     # Handle up to base 36 [0-9a-z]
     assert 2 <= base <= 36, 'base is out of range: {}'.format(base)
     # TODO: Decode digits from binary (base 2)
-    one_digit_dictionary = {}
-    array_of_digits = list(digits)
-    for index, digit in enumerate(array_of_digits):
-        if digit == 1:
-            one_digit_dictionary["The index: %s"%(index)] = digit
+    # First things first we have to positon the digits that is beneifcial to us
+    binary_digit_list = list(digits)
 
+    # We need a count so we can increment it with the correct numbers
+    binary_count = 0
+    # Now that we have the list we have to work with the indexes
 
+    len_of_binary_digit_list = len(binary_digit_list)
+
+    # When decoding binary into integer the farthest number to the right is 2^ 0 multiplied by either 1 or 0
+    # therefore we have to subtract 1 so we can get the strating value at index xero due to us raising the number to that power
+    for index, digit in enumerate(binary_digit_list):
+        power_postion = len_of_binary_digit_list - index
+        binary_count += (2 ** (power_postion - 1)) * digit
+    return binary_count
+    
     # ...
     # TODO: Decode digits from hexadecimal (base 16)
+    hexadecimal_digit_list = list(digits)
+
+    hexadecimal_count = 0
+    
+    len_of_hexadecimal_digit_list = len(hexadecimal_digit_list)
+
+    for index, hexdigit in enumerate(hexadecimal_digit_list):
+        power_position = len_of_hexadecimal_digit_list - index
+        hexadecimal_count += (2 ** (power_position - 1) * hexdigit)
+
     # ...
     # TODO: Decode digits from any base (2 up to 36)
     # ...
