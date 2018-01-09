@@ -35,12 +35,12 @@ def decode(digits, base):
     # therefore we have to subtract 1 so we can get the strating value at index xero due to us raising the number to that power
     for index, digit in enumerate(binary_digit_list):
         power_postion = len_of_binary_digit_list - index
-        binary_count += (2 ** (power_postion - 1)) * digit
+        binary_count += (base ** (power_postion - 1)) * digit
     return binary_count
     
     # ...
     # TODO: Decode digits from hexadecimal (base 16)
-    hexadecimal_digit_list = list(digits)
+    hexadecimal_digit_list = list(digits.upper())
 
     hexadecimal_count = 0
     
@@ -51,9 +51,9 @@ def decode(digits, base):
     for index, hexdigit in enumerate(hexadecimal_digit_list):
         power_position = len_of_hexadecimal_digit_list - index
         if type(hexdigit) == str:
-            hexadecimal_count +=  (16 ** (power_position - 1) * transform_letter_into_integer(hexdigit))
+            hexadecimal_count +=  (base ** (power_position - 1) * transform_letter_into_integer(hexdigit))
         else:
-            hexadecimal_count += (16 ** (power_position - 1) * hexdigit)
+            hexadecimal_count += (base ** (power_position - 1) * hexdigit)
     return hexadecimal_count
 
     # ...
