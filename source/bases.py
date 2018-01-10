@@ -15,6 +15,40 @@ def transform_letter_into_integer(letter):
     return hex_dict[letter]
 
 
+def encode_from_base_ten_to_any_base(digits, base):
+    remainder_list = []
+    remainder = digits % base
+
+    print("This is the original dividend: %s, and the orignal remainder: %s" %(digits, remainder))
+
+    while digits > base:
+
+        digits //= base
+
+        remainders = digits % base
+
+        # Can not do this due to the reason that if we use this conditional then we are left with the problem that the quotient is left out
+        # if digits != remainders:
+
+        print("When the dividend is: %s, this is the remainder %s" %(digits ,remainders))
+        remainder_list.append(remainders)
+    print("This is the last number %s"%(remainder_list[-1]))
+    remainder_list.remove(remainder_list[-1])
+    # remainder_list.append(remainder)
+    new_remainder_list = remainder_list[::-1]
+    new_remainder_list.append(remainder)
+    newer_list = [digits] + new_remainder_list
+    return newer_list, str(newer_list)
+
+
+# for _ in range(3):
+#     print(divmod(8, 745))
+
+def find_remainder(digits, base):
+    return digits % base
+print(encode_from_base_ten_to_any_base(23780273458, 8))
+
+
 def decode(digits, base):
     """Decode given digits in given base to number in base 10.
     digits: str -- string representation of number (in given base)
