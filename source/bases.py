@@ -11,8 +11,9 @@ import string
 
 
 def transform_letter_into_integer(letter):
-    hex_dict = {'A': 10, 'B': 11, 'C': 12, 'D': 13, 'E': 14, 'F': 15}
+    hex_dict = {'0': 0,'1':1,'2':2, '3': 3, '4':4, '5': 5, '6': 6, '7': 7, '8':8, '9': 9, 'A': 10, 'B': 11, 'C': 12, 'D': 13, 'E': 14, 'F': 15, 'G': 16, 'H': 17, 'I': 18, 'J': 19, 'K': 20, 'L': 21, 'M': 22, 'N': 23, 'O': 24, 'P':25, 'Q': 26, 'R': 27, 'S': 28, 'T':29, 'U':30, 'V':31,'W':32, 'X': 33, 'Y':34, 'Z': 35}
     return hex_dict[letter]
+
 
 def decode(digits, base):
     """Decode given digits in given base to number in base 10.
@@ -58,7 +59,21 @@ def decode(digits, base):
 
     # ...
     # TODO: Decode digits from any base (2 up to 36)
-    # ... 
+    # ...
+    any_base_digit_list = list(digit.upper())
+
+    cumalitive_count = 0
+
+    len_of_digit_list = len(any_base_digit_list)
+
+      for index, base_digit in enumerate(any_base_digit_list):
+        power_position = len_of_digit_list - index
+        if type(base_digit) == str and base > transform_letter_into_integer(base_digit):
+            cumalitive_count += (2 ** (power_position - 1) * transform_letter_into_integer(base_digit))
+        else:
+            return 'base is out of range: {}'.format(base)
+
+    return cumalitive_count
 
 
 
