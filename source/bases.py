@@ -66,10 +66,11 @@ def decode(digits, base):
 
     len_of_digit_list = len(any_base_digit_list)
 
-      for index, base_digit in enumerate(any_base_digit_list):
+
+    for index, base_digit in enumerate(any_base_digit_list):
         power_position = len_of_digit_list - index
         if type(base_digit) == str and base > transform_letter_into_integer(base_digit):
-            cumalitive_count += (2 ** (power_position - 1) * transform_letter_into_integer(base_digit))
+            cumalitive_count += (base ** (power_position - 1) * transform_letter_into_integer(base_digit))
         else:
             return 'base is out of range: {}'.format(base)
 
