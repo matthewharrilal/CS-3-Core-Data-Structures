@@ -54,8 +54,6 @@ def linear_search_recursive(array, item, index=0):
     return linear_search_recursive(array,item, index + 1)
 
 
-
-
 def binary_search(array, item):
     """return the index of item in sorted array or None if item is not found"""
     # implement binary_search_iterative and binary_search_recursive below, then
