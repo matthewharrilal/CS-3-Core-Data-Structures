@@ -129,6 +129,58 @@ def encode(number, base):
     # ...
 
 
+
+def transform_letter():
+    hex_dict = {10: 'A', 11: 'B', 12: 'C', 13: 'D', 14: 'E',  15: 'F'}
+    hex_dict = {0: '0', 1: '1', 2: '2', 3: '3', 4: '4', 5: '5', 6: '6', 7: '7', 8: '8', 9: '9', 10: 'A', 11: 'B', 12: 'C', 13: 'D', 14: 'E',  15: 'F', 16: "G", 17: 'H', 18: "I", 19: "J", 20: 'K', 21: "L", 22: "M",
+                23: 'N', 24: "O", 25: "P", 26: "Q", 27: "R", 28: "S", 29: "T", 30: "U", 31: "V", 32: "W", 33: "X",
+                34:'Y', 35: "Z"}
+    return hex_dict
+
+
+def encode_from_base_ten_to_any_base(digits, base):
+    remainder_list = []
+    remainder = digits % base
+
+    if digits < base and base <= 10 :
+        return "Any digit lower than base is the digit itself:  %s" %(digits)
+
+    # if digits in transform_letter():
+    #     #todo Giving me problems when given the problem to encode 10 to base 10
+    #     return transform_letter()[digits]
+
+    while digits >= base:
+
+        digits //= base
+        remainders = digits % base
+        remainder_list.append(remainders)
+        reversed_remainder_list = remainder_list[::-1]
+        reversed_remainder_list.remove(reversed_remainder_list[0])
+        reversed_remainder_list.append(remainder)
+    prepended_reversed_remainder_list = [digits] + reversed_remainder_list
+    # return ''.join(str(x) for x in prepended_reversed_remainder_list)
+    return prepended_reversed_remainder_list
+print(encode_from_base_ten_to_any_base(10,10))
+
+def encode_base_ten_to_hexadecimal(list_of_digits):
+    newer_list = []
+    for index,digit in enumerate(list_of_digits):
+        if digit in transform_letter().keys():
+            list_of_digits[index] = transform_letter()[digit]
+    pretty_printed_result = ''.join(str(number) for number in list_of_digits)
+    return pretty_printed_result.lower()
+
+#
+# # print(encode_base_ten_to_hexadecimal(encode_from_base_ten_to_any_base(4027038225, 16)))
+# print(transform_letter(10))
+print(encode_base_ten_to_hexadecimal(encode_from_base_ten_to_any_base(10,10)))
+
+
+def find_remainder(digits, base):
+    return digits % base
+
+
+
 def convert(digits, base1, base2):
     """Convert given digits in base1 to digits in base2.
     digits: str -- string representation of number (in base1)
