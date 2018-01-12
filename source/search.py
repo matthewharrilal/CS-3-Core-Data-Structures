@@ -4,8 +4,20 @@ def linear_search(array, item):
     """return the first index of item in array or None if item is not found"""
     # implement linear_search_iterative and linear_search_recursive below, then
     # change this to call your implementation to verify it passes all tests
-    return linear_search_iterative(array, item)
-    # return linear_search_recursive(array, item)
+
+
+    index_of_item = 0
+    array_length = len(array)
+
+    while array_length > 0:
+        if array[index_of_item] == item:
+            return "The search was succesful here is you array: %s and item: %s" % (array, item)
+        if index_of_item > array_length:
+            return None
+        index_of_item += 1
+        array_length -= 1
+    return linear_search(array, item)
+# return linear_search_recursive(array, item)
 
 
 def linear_search_iterative(array, item):
