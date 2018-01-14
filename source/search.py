@@ -58,8 +58,41 @@ def binary_search(array, item):
     """return the index of item in sorted array or None if item is not found"""
     # implement binary_search_iterative and binary_search_recursive below, then
     # change this to call your implementation to verify it passes all tests
+
+    # We have to sort the given array!
+    sorted_array = sorted(array)
+
+    len_of_sorted_array = len(sorted_array)
+
+
+    left_bound = 0
+
+    right_bound = len_of_sorted_array - 1
+
+    print(sorted_array)
+
+    if len_of_sorted_array == 0:
+        return "Put some values in there homie"
+
+    if item == sorted_array[left_bound]:
+        return left_bound
+    elif item == sorted_array[right_bound]:
+        return right_bound
+
+    while left_bound <= right_bound:
+        middle_of_list = int((left_bound + right_bound) // 2)
+        print("These are the middle of list %s" %(sorted_array[middle_of_list]))
+
+        if item == sorted_array[middle_of_list]:
+            return middle_of_list
+
+        if item < sorted_array[middle_of_list]:
+            right_bound = middle_of_list - 1
+
+        if item > sorted_array[middle_of_list]:
+            left_bound = middle_of_list + 1
+
     return binary_search_iterative(array, item)
-    # return binary_search_recursive(array, item)
 
 
 def binary_search_iterative(array, item):
@@ -71,6 +104,27 @@ def binary_search_iterative(array, item):
 
 def binary_search_recursive(array, item, left=None, right=None):
     # TODO: implement binary search recursively here
-    pass
+
+    if left == None and right == None:
+        left = 0
+        right = len(array) - 1
+
+    middle_of_list = (left + right) // 2
+
+    if item == array[middle_of_list]:
+        return middle_of_list
+    
+    if item < array[middle_of_list]:
+        right = middle_of_list - 1
+    
+    if item > array[middle_of_list]:
+        left = middle_of_list + 1
+
+    if left > right:
+        return None
+
+    return binary_search_recursive(array, item, left, right)
+
+
     # once implemented, change binary_search to call binary_search_recursive
     # to verify that your recursive implementation passes all tests
