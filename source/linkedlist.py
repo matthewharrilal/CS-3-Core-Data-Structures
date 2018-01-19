@@ -110,8 +110,10 @@ class LinkedList(object):
         previous_node = None
 
         if index == 0:
-            # If the user is trying to insert at the index 0 then we prepend the node
+            # If the user is trying to insert at the index 0 then we prepend the node and then we have to set it as the new node
             self.prepend(desired_node)
+            self.head = desired_node
+
             return
         if index == self.size:
             # If the user is trying to append to the end of the linked list then we append the node
