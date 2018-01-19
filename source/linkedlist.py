@@ -113,16 +113,17 @@ class LinkedList(object):
             # If the user is trying to insert at the index 0 then we prepend the node and then we have to set it as the new node
             self.prepend(desired_node)
             self.head = desired_node
-
             return
         if index == self.size:
             # If the user is trying to append to the end of the linked list then we append the node
             self.append(desired_node)
+            return
 
         if self.is_empty() and counter == index:
             # If the linked list is initially empty set the head and the tail to that current node
             self.head = desired_node
             self.tail = desired_node
+            return
 
         while current_node is not None:
             # Handling our most basic edge case if the user wants to insert the node in the middle of the list
@@ -131,6 +132,7 @@ class LinkedList(object):
                 current_node = current_node.next
                 previous_node.next = desired_node
                 desired_node.next = current_node
+                return
             counter += 1
             current_node = current_node.next
             self.size += 1
@@ -196,6 +198,8 @@ class LinkedList(object):
         current_node = self.head
 
         if current_node.data == old_item:
+            # We are using this conditional to provide an early exit if the node they are trying to replace is the first
+            # node
             current_node.data = new_item
             return
 
