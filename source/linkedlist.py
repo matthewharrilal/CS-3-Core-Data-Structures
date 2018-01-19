@@ -55,7 +55,7 @@ class LinkedList(object):
         return self.head is None
 
     def length(self):
-        """Return the length of this linked list by traversing its nodes.
+        """Return the length of this linked  list by traversing its nodes.
         Best and worst case running time: ??? under what conditions? [TODO]"""
         # Node counter initialized to zero
         node_count = 0
@@ -79,6 +79,19 @@ class LinkedList(object):
         if not (0 <= index < self.size):
             raise ValueError('List index out of range: {}'.format(index))
         # TODO: Find the node at the given index and return its data
+        # Finding the first node as well as the next node before iteration
+        current_node = self.head
+        counter = 0
+
+        if counter == index:
+            return current_node.data
+
+        while current_node is not None:
+            if counter == index:
+                return current_node.data
+            counter += 1
+            current_node = current_node.next
+
 
     def insert_at_index(self, index, item):
         """Insert the given item at the given index in this linked list, or
@@ -89,6 +102,37 @@ class LinkedList(object):
         if not (0 <= index <= self.size):
             raise ValueError('List index out of range: {}'.format(index))
         # TODO: Find the node before the given index and insert item after it
+
+        # Standard boilerplate code for getting the current node
+        current_node = self.head
+        counter = 0
+        desired_node = Node(item)
+        previous_node = None
+
+        if index == 0:
+            # If the user is trying to insert at the index 0 then we prepend the node
+            self.prepend(desired_node)
+            return
+        if index == self.size:
+            # If the user is trying to append to the end of the linked list then we append the node
+            self.append(desired_node)
+
+        if self.is_empty() and counter == index:
+            # If the linked list is initially empty set the head and the tail to that current node
+            self.head = desired_node
+            self.tail = desired_node
+
+        while current_node is not None:
+            # Handling our most basic edge case if the user wants to insert the node in the middle of the list
+            if current_node != self.tail and counter == index:
+                previous_node = current_node
+                current_node = current_node.next
+                previous_node.next = desired_node
+                desired_node.next = current_node
+            counter += 1
+            current_node = current_node.next
+            self.size += 1
+
 
     def append(self, item):
         """Insert the given item at the tail of this linked list.
@@ -104,6 +148,7 @@ class LinkedList(object):
             self.tail.next = new_node
         # Update tail to new node regardless
         self.tail = new_node
+        self.size += 1
 
     def prepend(self, item):
         """Insert the given item at the head of this linked list.
@@ -119,6 +164,7 @@ class LinkedList(object):
             new_node.next = self.head
         # Update head to new node regardless
         self.head = new_node
+        self.size += 1
 
     def find(self, quality):
         """Return an item from this linked list satisfying the given quality.
@@ -189,6 +235,7 @@ class LinkedList(object):
                     previous.next = None
                 # Update tail to the previous node regardless
                 self.tail = previous
+            self.size -= 1
         else:
             # Otherwise raise an error to tell the user that delete has failed
             raise ValueError('Item not found: {}'.format(item))

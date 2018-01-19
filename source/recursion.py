@@ -46,6 +46,17 @@ def factorial_recursive(n):
         # call function recursively
         return n * factorial_recursive(n - 1)
 
+def permutations(n,r):
+    
+    if n < 0 or r < 0:
+        raise ValueError("function is undefined for n < 0 or r < 0")
+
+    if r == 1:
+        return 1
+    
+    return (n * permutations(n - 1)) / (r * permutations(r - 1))
+
+
 
 def main():
     import sys
@@ -56,6 +67,8 @@ def main():
         print('factorial({}) => {}'.format(num, result))
     else:
         print('Usage: {} number'.format(sys.argv[0]))
+
+
 
 
 if __name__ == '__main__':
