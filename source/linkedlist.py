@@ -52,8 +52,10 @@ class LinkedList(object):
 
     def is_empty(self):
         """Return True if this linked list is empty, or False."""
-        return self.head is None
-
+        # return self.head is None
+        if self.size == 0:
+            return True
+        return False
     def length(self):
         """Return the length of this linked  list by traversing its nodes.
         Best and worst case running time: ??? under what conditions? [TODO]"""
@@ -108,7 +110,6 @@ class LinkedList(object):
         counter = 0
         desired_node = Node(item)
 
-
         if index == 0:
             # If the user is trying to insert at the index 0 then we prepend the node and then we have to set it as the new node
             self.prepend(desired_node)
@@ -117,12 +118,6 @@ class LinkedList(object):
         if index == self.size:
             # If the user is trying to append to the end of the linked list then we append the node
             self.append(desired_node)
-            self.tail = desired_node
-            return
-
-        if self.is_empty():
-            # If the linked list is initially empty set the head and the tail to that current node
-            self.head = desired_node
             self.tail = desired_node
             return
 
