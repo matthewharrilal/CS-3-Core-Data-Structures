@@ -22,50 +22,50 @@ class LinkedStack(object):
     def is_empty(self):
         """Return True if this stack is empty, or False otherwise."""
         # TODO: Check if empty
-
+        # Since we are implementing a stack with a linked list we can use the linked list is empty method
         return self.list.is_empty()
-
 
     def length(self):
         """Return the number of items in this stack."""
         # TODO: Count number of items
-        if self.list.is_empty() == True:
-            return None
-        else:
-            return self.list.length()
+        return self.list.length()
 
     def push(self, item):
         """Insert the given item on the top of this stack.
-        Running time: O(???) – Why? [TODO]"""
+        Running time: O(???) – Why? [TODO]"""
         # TODO: Push given item
-        # Think about it the top of the stack is where the head is pointing at therefore the top is at index 0
+        # So we know that the push method is to insert an item at the top of the stack and we know the top of a linked
+        # list is at the head that is why they call it the head therefore we can insert at index 0 or rather what is
+        # easier what if prepend to the list
         self.list.prepend(item)
+        # The reason we do this over inserting at index 0 is due to the fact that we want to be able to just easily put it
+        # in the beginning of the list
+
 
     def peek(self):
         """Return the item on the top of this stack without removing it,
         or None if this stack is empty."""
         # TODO: Return top item, if any
-        if self.list.is_empty() == False:
-            return self.list.get_at_index(0)
-        else:
+        # Since we know the top node of the stack is at index 0 we can just use the get at index method within the linked
+        # list
+        if self.list.is_empty() == True:
             return None
+        top_node = self.list.get_at_index(0)
+        return top_node
 
     def pop(self):
         """Remove and return the item on the top of this stack,
         or raise ValueError if this stack is empty.
-        Running time: O(???) – Why? [TODO]"""
+        Running time: O(???) – Why? [TODO]"""
         # TODO: Remove and return top item, if any
-        # We want to account for the edge case if there is not items in the stack
+        # Similar to the peek method we know the top of the stack is the node at index 0 therefore we can delete it and
+        # return the new beginning node
         if self.list.is_empty() == True:
             raise ValueError
-        else:
-            latest_node = self.list.get_at_index(0)
-            self.list.delete(latest_node)
-            return latest_node
 
-        # Now that we have checked if the stack is empty and we are raising a value error if it is what we can do is
-        # now remove the tail
-
+        top_node = self.list.get_at_index(0)
+        self.list.delete(top_node)
+        return top_node
 
 
 # Implement ArrayStack below, then change the assignment at the bottom
@@ -75,6 +75,8 @@ class ArrayStack(object):
     def __init__(self, iterable=None):
         """Initialize this stack and push the given items, if any."""
         # Initialize a new list (dynamic array) to store the items
+
+        #Since we are working with arrays I want to be able to calculate the size on the fly therefore initalize a size of 0
         self.list = list()
         self.size = 0
         if iterable is not None:
@@ -99,52 +101,22 @@ class ArrayStack(object):
 
     def push(self, item):
         """Insert the given item on the top of this stack.
-        Running time: O(???) – Why? [TODO]"""
+        Running time: O(???) – Why? [TODO]"""
         # TODO: Insert given item
-        self.list.append(item)
-        self.size += 1
 
     def peek(self):
         """Return the item on the top of this stack without removing it,
         or None if this stack is empty."""
         # TODO: Return top item, if any
-        if self.is_empty() == True:
-            return None
-        return self.list[self.size - 1]
 
     def pop(self):
         """Remove and return the item on the top of this stack,
         or raise ValueError if this stack is empty.
-        Running time: O(???) – Why? [TODO]"""
+        Running time: O(???) – Why? [TODO]"""
         # TODO: Remove and return top item, if any
-        if self.is_empty() == True:
-            return None
-        latest_node = self.list[self.size - 1]
-        self.list.remove(latest_node)
-        self.size -= 1
-        return latest_node
 
 
 # Implement LinkedStack and ArrayStack above, then change the assignment below
 # to use each of your Stack implementations to verify they each pass all tests
 Stack = LinkedStack
 # Stack = ArrayStack
-Stack = ArrayStack
-
-def main():
-    import sys
-    args = sys.argv[1:]  # Ignore script file name
-    if len(args) == 0:
-        s = Stack()
-        # s = Stack(['A', 'B', 'C'])
-        # s = LinkedStack(['A', 'B', 'C'])
-        # print s.peek()
-        # print s.length()
-        print(s.is_empty())
-        # print s
-    else:
-        print('hello')
-
-
-if __name__ == '__main__':
-    main()

@@ -22,20 +22,29 @@ class LinkedQueue(object):
     def is_empty(self):
         """Return True if this queue is empty, or False otherwise."""
         # TODO: Check if empty
+        return self.list.is_empty()
 
     def length(self):
         """Return the number of items in this queue."""
         # TODO: Count number of items
+        return self.list.size
+
 
     def enqueue(self, item):
         """Insert the given item at the back of this queue.
         Running time: O(???) – Why? [TODO]"""
         # TODO: Insert given item
+        if self.list.is_empty():
+            raise ValueError
+        self.list
 
     def front(self):
         """Return the item at the front of this queue without removing it,
         or None if this queue is empty."""
         # TODO: Return front item, if any
+        if self.list.is_empty() == True:
+            return None
+        return self.list.get_at_index(0)
 
     def dequeue(self):
         """Remove and return the item at the front of this queue,
