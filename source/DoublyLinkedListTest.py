@@ -17,3 +17,25 @@ class DoublyLinkedListTest(unittest.TestCase):
         assert ll.length_of_linked_list() == 0
         assert ll.head == None
         assert ll.tail == None
+
+    def test_append(self):
+        ll = Doubly()
+        ll.append("a")
+        assert ll.length_of_linked_list() == 1
+        assert ll.head.data == 'a'
+        assert ll.tail.data == 'a'
+
+        ll.append('b')
+        assert ll.head.data == "a"
+        assert ll.tail.data == 'b'
+        assert ll.length_of_linked_list() == 2
+
+        ll.append('c')
+        assert ll.head.data == 'a'
+        assert ll.tail.data == 'c'
+        assert ll.length_of_linked_list() == 3
+
+    def test_prepend(self):
+        ll = Doubly
+        ll.prepend('a')
+        assert ll.
