@@ -100,3 +100,71 @@ class DoublyLinkedList(object):
         self.tail = new_node
         # Since we are appending increase the size by 1
         self.size += 1
+
+    def prepend(self, item):
+        '''Prepends an item to the beginning of a list'''
+        current_node = self.head
+        new_node = BinaryNode(item)
+
+        # Let us account for our first edge case is if the linked list is empty
+        if self.is_empty() == True:
+            self.tail = new_node
+            self.size += 1
+            return
+        else:
+            current_node.previous_pointer = new_node
+        self.head = new_node
+        self.size += 1
+
+    def find(self, quality):
+        # Set the current node to be equal to the head
+        current_node = self.head
+
+        # Iterating through the nodes in the linked list so we do not get a list index error out of range
+        while current_node is not None:
+            # Passing it through the lambda function checking if the current nodes data is equal to the item that the
+            # user is looking for
+            if quality(current_node.data):
+
+                # If we have found it then we return the current nodes data
+                return current_node.data
+            # But if we did not then iterate to the next node in the doubly linked list
+            current_node = current_node.next_pointer
+        # If we iterate through the entire doubly linked list and do not find the item that the user is looking for then
+        # we return the value None
+        return None
+
+    def delete(self, item):
+        '''Delete the item from the DoublyLinkedList that the user is looking for'''
+
+        current_node = self.head
+
+        # We account for the first edge case and that being is that if we have an empty list
+        if self.is_empty() == True:
+            return None
+        # Then we have other two edge cases if the user is trying to delete the head or the tail
+        if item == self.get_at_index(0):
+            self.head = current_node.next
+
+        elif item == self.get_at_index(self.size - 1):
+            # Take the node where the tail is pointing and set the pointer going back to the previous node which we just
+            # created
+            node_before_the_tail = self.tail.previous_pointer
+
+            # And then set the tail to the previous node
+            self.tail = node_before_the_tail
+
+        # Now we account for the cases where the item the user is trying to delete is not the head or the tail of the
+        # the linked list
+        while current_node is not None:
+            if current_node.data == item:
+                previous_node = current_node.previous_pointer
+                previous_node.next_pointer = current_node.next_pointer
+            current_node = current_node.next_pointer
+            self.size -= 1
+
+
+
+Doubly = DoublyLinkedList
+
+
