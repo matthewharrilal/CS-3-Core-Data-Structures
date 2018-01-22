@@ -76,3 +76,26 @@ class QueueTest(unittest.TestCase):
         q.enqueue_right('C')
         assert  q.length() == 3
         assert  q.front() == "A"
+
+    def test_delete_left(self):
+        q = Queue(['A', 'B', 'C'])
+        assert q.length() == 3
+        assert  q.front() == 'A'
+        assert q.delete_left() == 'A'
+        assert q.length() == 2
+        assert q.front() == "B"
+        assert q.delete_left() == 'B'
+        assert q.front() == "C"
+        assert q.length() == 1
+        assert q.delete_left() == "C"
+        assert q.front() == None
+        assert q.length() == 0
+        assert  q.is_empty() == True
+
+    def test_is_empty(self):
+        q = Queue()
+        assert q.is_empty() == True
+        assert q.length() == 0
+        q.enqueue_left('A')
+        assert q.is_empty() == False
+
