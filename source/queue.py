@@ -57,6 +57,53 @@ class LinkedQueue(object):
         self.list.delete(front_node)
         return front_node
 
+class DoubleEndedQueue(object):
+    def __init__(self, iterable=None):
+        '''Initialize the given function for a deqeue'''
+        self.list = list()
+        self.size = 0
+        if iterable is not None:
+            for item in iterable:
+                self.enqueue(item)
+
+    def __repr__(self):
+        """Return a string representation of this queue."""
+        return 'Queue({} items, front={})'.format(self.length(), self.front())
+
+    def is_empty(self):
+        if self.size == 0:
+            return True
+        return False
+
+    def length(self):
+        return self.size
+
+    def enqueue_left(self, item):
+        self.list.insert(0, item)
+        self.size += 1
+
+    def enqueue_right(self, item):
+        self.list.append(item)
+        self.size += 1
+
+    def delete_left(self):
+        '''Removes and return leftmost element which is the first node '''
+        if self.is_empty() == True:
+            raise ValueError
+        first_node = self.list[0]
+        self.list.remove(first_node)
+        self.size -= 1
+        return first_node
+
+    def delete_right(self):
+        if self.is_empty() == True:
+            raise ValueError
+        latest_node = self.list[self.size - 1]
+        self.list.remove(latest_node)
+        self.size -= 1
+        return latest_node
+
+
 
 # Implement ArrayQueue below, then change the assignment at the bottom
 # to use this Queue implementation to verify it passes all tests
