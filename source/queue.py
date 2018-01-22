@@ -64,7 +64,7 @@ class DoubleEndedQueue(object):
         self.size = 0
         if iterable is not None:
             for item in iterable:
-                self.enqueue(item)
+                self.enqueue_left(item)
 
     def __repr__(self):
         """Return a string representation of this queue."""
@@ -77,6 +77,12 @@ class DoubleEndedQueue(object):
 
     def length(self):
         return self.size
+
+    def front(self):
+        if self.is_empty() == True:
+            return None
+        latest_node = self.list[self.size - 1]
+        return latest_node
 
     def enqueue_left(self, item):
         self.list.insert(0, item)
@@ -102,6 +108,7 @@ class DoubleEndedQueue(object):
         self.list.remove(latest_node)
         self.size -= 1
         return latest_node
+
 
 
 
@@ -167,5 +174,7 @@ class ArrayQueue(object):
 
 # Implement LinkedQueue and ArrayQueue above, then change the assignment below
 # to use each of your Queue implementations to verify they each pass all tests
-Queue = LinkedQueue
-Queue = ArrayQueue
+# Queue = LinkedQueue
+# Queue = ArrayQueue
+Queue = DoubleEndedQueue
+

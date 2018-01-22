@@ -21,10 +21,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="linkedlist.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="linkedlist.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/linkedlist.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2424">
+            <state relative-caret-position="1581">
               <caret line="143" column="37" lean-forward="true" selection-start-line="143" selection-start-column="37" selection-end-line="143" selection-end-column="37" />
               <folding />
             </state>
@@ -44,9 +44,33 @@
       <file leaf-file-name="queue.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/queue.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="99" column="28" lean-forward="false" selection-start-line="99" selection-start-column="28" selection-end-line="99" selection-end-column="28" />
+            <state relative-caret-position="-297">
+              <caret line="66" column="34" lean-forward="false" selection-start-line="66" selection-start-column="34" selection-end-line="66" selection-end-column="34" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="double_ended_queue_tesy.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/double_ended_queue_tesy.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="460">
+              <caret line="55" column="29" lean-forward="false" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="29" />
+              <folding>
+                <element signature="e#0#23#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="queue_test.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/queue_test.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="348">
+              <caret line="57" column="4" lean-forward="false" selection-start-line="57" selection-start-column="4" selection-end-line="67" selection-end-column="23" />
+              <folding>
+                <element signature="e#10#33#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -93,6 +117,13 @@
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>is_empty</find>
@@ -105,6 +136,7 @@
         <option value="$USER_HOME$/PycharmProjects/LeetCodeChallenges/LeetCodeChallengesDay1.py" />
         <option value="$PROJECT_DIR$/stack.py" />
         <option value="$PROJECT_DIR$/queue.py" />
+        <option value="$PROJECT_DIR$/double_ended_queue_tesy.py" />
       </list>
     </option>
   </component>
@@ -281,14 +313,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/stack_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-376">
-          <caret line="0" column="8" lean-forward="true" selection-start-line="0" selection-start-column="8" selection-end-line="0" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/strings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -321,19 +345,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/queue.py">
+    <entry file="file://$PROJECT_DIR$/stack_test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="99" column="28" lean-forward="false" selection-start-line="99" selection-start-column="28" selection-end-line="99" selection-end-column="28" />
+        <state relative-caret-position="-376">
+          <caret line="0" column="8" lean-forward="true" selection-start-line="0" selection-start-column="8" selection-end-line="0" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/linkedlist.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2424">
+        <state relative-caret-position="1581">
           <caret line="143" column="37" lean-forward="true" selection-start-line="143" selection-start-column="37" selection-end-line="143" selection-end-column="37" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/queue.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-297">
+          <caret line="66" column="34" lean-forward="false" selection-start-line="66" selection-start-column="34" selection-end-line="66" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/queue_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="57" column="4" lean-forward="false" selection-start-line="57" selection-start-column="4" selection-end-line="67" selection-end-column="23" />
+          <folding>
+            <element signature="e#10#33#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/double_ended_queue_tesy.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="55" column="29" lean-forward="false" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
