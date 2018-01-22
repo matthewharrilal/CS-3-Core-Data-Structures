@@ -36,6 +36,19 @@ class DoublyLinkedListTest(unittest.TestCase):
         assert ll.length_of_linked_list() == 3
 
     def test_prepend(self):
-        ll = Doubly
+        ll = Doubly()
+
         ll.prepend('a')
-        assert ll.
+        assert ll.length_of_linked_list() == 1
+        assert ll.head.data == 'a'
+        assert ll.tail.data == 'a'
+
+        ll.prepend('b')
+        assert ll.length_of_linked_list() == 2
+        assert ll.head.data == 'b'
+        assert ll.tail.data == 'a'
+
+        ll.prepend('c')
+        assert ll.length_of_linked_list() == 3
+        assert ll.head.data == 'c'
+        assert ll.tail.data == 'a'

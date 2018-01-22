@@ -108,6 +108,7 @@ class DoublyLinkedList(object):
 
         # Let us account for our first edge case is if the linked list is empty
         if self.is_empty() == True:
+            self.head = new_node
             self.tail = new_node
             self.size += 1
             return
