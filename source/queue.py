@@ -64,7 +64,8 @@ class DoubleEndedQueue(object):
         self.size = 0
         if iterable is not None:
             for item in iterable:
-                self.enqueue_left(item)
+                # The reason we want to enqueue from the right is because that is the natural way we append to an array
+                self.enqueue_right(item)
 
     def __repr__(self):
         """Return a string representation of this queue."""
@@ -77,12 +78,6 @@ class DoubleEndedQueue(object):
 
     def length(self):
         return self.size
-
-    def front(self):
-        if self.is_empty() == True:
-            return None
-        latest_node = self.list[self.size - 1]
-        return latest_node
 
     def enqueue_left(self, item):
         self.list.insert(0, item)
@@ -108,6 +103,13 @@ class DoubleEndedQueue(object):
         self.list.remove(latest_node)
         self.size -= 1
         return latest_node
+
+    def front(self):
+        if self.is_empty() == True:
+            return None
+        front_node = self.list[0]
+        print('This is the front %s' % (self.list[self.size - 1]))
+        return front_node
 
 
 
@@ -146,7 +148,7 @@ class ArrayQueue(object):
         """Insert the given item at the back of this queue.
         Running time: O(???) – Why? [TODO]"""
         # TODO: Insert given item
-        self.list.insert(0, item)
+        self.list.append(item)
         self.size += 1
 
 
@@ -156,8 +158,8 @@ class ArrayQueue(object):
         # TODO: Return front item, if any
         if self.is_empty() == True:
             return None
-        latest_node = self.list[self.size - 1]
-        return latest_node
+        front_node = self.list[0]
+        return front_node
 
 
     def dequeue(self):
@@ -167,10 +169,10 @@ class ArrayQueue(object):
         # TODO: Remove and return front item, if any
         if self.is_empty() == True:
             raise ValueError
-        latest_node = self.list[self.size - 1]
-        self.list.remove(latest_node)
+        front_node = self.list[0]
+        self.list.remove(front_node)
         self.size -= 1
-        return latest_node
+        return front_node
 
 # Implement LinkedQueue and ArrayQueue above, then change the assignment below
 # to use each of your Queue implementations to verify they each pass all tests
