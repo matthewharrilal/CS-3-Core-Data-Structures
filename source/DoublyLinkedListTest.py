@@ -52,3 +52,12 @@ class DoublyLinkedListTest(unittest.TestCase):
         assert ll.length_of_linked_list() == 3
         assert ll.head.data == 'c'
         assert ll.tail.data == 'a'
+
+    def test_find(self):
+        ll = Doubly(['A', 'B', 'C'])
+        assert ll.find(lambda item: item == 'B') == 'B'
+        assert ll.find(lambda item: item < 'B') == 'A'
+        assert ll.find(lambda item: item > 'B') == 'C'
+        assert ll.find(lambda item: item == 'X') is None
+
+    def test_get_at_index(self):
