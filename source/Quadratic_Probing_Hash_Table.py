@@ -50,7 +50,7 @@ class Quadratic_Probing_Hash_Table(object):
     def length(self):
         '''Returns the number of key_value entries by traversing the hash tables buckets'''
         item_count = 0
-        item_count += len(self.keys_and_values()) / 2
+        item_count += len(self.keys_and_values()) // 2
         return item_count
 
     def contains(self, key):
@@ -61,7 +61,7 @@ class Quadratic_Probing_Hash_Table(object):
 
         if accurate_bucket is None:
             raise ValueError('Contains Function undefined for non existent buckets')
-
+        print(accurate_bucket)
         if accurate_bucket[0] == key:  # The user is suppose to save values as key value pairs
             # therefore if the first value is not the key then the list does not contain that key value entry
             return True
