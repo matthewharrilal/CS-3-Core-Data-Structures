@@ -25,7 +25,7 @@ class Quadratic_Probing_Hash_Table(object):
 
     def _bucket_index(self, key):
         # Applies formula to find index where key value entry will be assigned
-        bucket_index = self.hash_function(key) % len(self.buckets)
+        bucket_index = self.hash_function(self.hash_function(key)) % len(self.buckets)
         return bucket_index
 
     def load_factor(self):
@@ -51,19 +51,32 @@ class Quadratic_Probing_Hash_Table(object):
 
     def contains(self, key):
         '''Returns True if a hash table contains a given key, False if not'''
-        # We can check our most basic edge case and that is if the list is empty
-        if len(self.buckets) == 0 or:
-            return False
 
         # Find the bucket that the key is contained in
-        hashed_key = self.hash_function(key)
-        index_of_bucket = self._bucket_index(hashed_key)
+        index_of_bucket = self._bucket_index(key)
         accurate_bucket = self.buckets[index_of_bucket]
 
-        for entry in accurate_bucket:
-            if hashed_key == entry:
-                return True
+        if accurate_bucket is None:
+            raise ValueError('Contains Function undefined for non existent buckets')
+
+        if accurate_bucket[0] == key:  # The user is suppose to save values as key value pairs
+            # therefore if the first value is not the key then the list does not contain that key value entry
+            return True
         return False
+
+    def get(self, key):
+        '''Return the value associated with the given key or r'''
+        index_of_bucket = self._bucket_index(key)  # Getting the index of the bucket
+        bucket_at_index = self.buckets[index_of_bucket]
+
+        if bucket_at_index is None:
+            raise ValueError('Get function is undefined for buckets that are non existent')
+
+        if bucket_at_index[0] == key:
+            return bucket_at_index[1]
+        else:  # Not found
+            raise KeyError('Key does not exist')
+
 
 
 
