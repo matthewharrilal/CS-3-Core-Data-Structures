@@ -4,8 +4,9 @@ class Quadratic_Probing_Hash_Table(object):
         '''Initalize the hash table with the given initial size'''
         self.buckets = [[] for _ in range(init_size)]
         self.size = 0 # Keeps track of the key value entries in each bucket
+        self.counter = 0
 
-    def hash_function(self, key, counter=0):
+    def hash_function(self, key):
         # Formulates hash number from given input
         if type(key) != str or type(key) != int:
             raise ValueError('Hash function undefined for key type other than string or integer')
@@ -15,14 +16,14 @@ class Quadratic_Probing_Hash_Table(object):
             for character in key:
                 list_of_ascii_values.append(ord(character))
             ascii_key_value = int(''.join(sum(list_of_ascii_values)))
-            hash_number = (ascii_key_value + (counter ** 2)) % len(self.buckets)
+            hash_number = (ascii_key_value + (self.counter ** 2)) % len(self.buckets)
             return hash_number
         else:
-            hash_number = (key + (counter ** 2)) % len(self.buckets)
+            hash_number = (key + (self.counter ** 2)) % len(self.buckets)
             return hash_number
 
 
-    def bucket_index(self, key):
+    def _bucket_index(self, key):
         # Applies formula to find index where key value entry will be assigned
         bucket_index = self.hash_function(key) % len(self.buckets)
         return bucket_index
@@ -47,5 +48,22 @@ class Quadratic_Probing_Hash_Table(object):
         for key_value_entry in self.keys_and_values():
             item_count += key_value_entry
         return item_count
+
+    def contains(self, key):
+        '''Returns True if a hash table contains a given key, False if not'''
+        # We can check our most basic edge case and that is if the list is empty
+        if len(self.buckets) == 0 or:
+            return False
+
+        # Find the bucket that the key is contained in
+        hashed_key = self.hash_function(key)
+        index_of_bucket = self._bucket_index(hashed_key)
+        accurate_bucket = self.buckets[index_of_bucket]
+
+        for entry in accurate_bucket:
+            if hashed_key == entry:
+                return True
+        return False
+
 
 
