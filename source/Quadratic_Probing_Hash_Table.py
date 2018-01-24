@@ -52,7 +52,7 @@ class Quadratic_Probing_Hash_Table(object):
         '''Returns the number of key_value entries by traversing the hash tables buckets'''
         item_count = 0
         for key_value_entry in self.keys_and_values():
-            item_count += key_value_entry
+            item_count += len(key_value_entry)
         return item_count
 
     def contains(self, key):
@@ -87,14 +87,17 @@ class Quadratic_Probing_Hash_Table(object):
         bucket_at_index = self.return_bucket(key)
         key_value_entry_index_store = [0 , 1]
         key_value_entry = [key, value]
+        print(bucket_at_index)
 
         # Now that we have the bucket that the key was hashed to we have to check if the entry exists already before we
         # insert
-        if bucket_at_index[0] == key and bucket_at_index[1] == value:
+        if len(bucket_at_index) == 0:
+            bucket_at_index.extend(key_value_entry)
+        elif bucket_at_index[0] == key and bucket_at_index[1] == value:
             for positional_index in key_value_entry_index_store:
                 del bucket_at_index[positional_index]
             self.size -= 1
-        bucket_at_index.extend(key_value_entry)
+            bucket_at_index.extend(key_value_entry)
         self.size += 1
 
         # Now that we have done that we have to check the load factor
