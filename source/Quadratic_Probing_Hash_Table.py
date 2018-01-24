@@ -111,6 +111,25 @@ class Quadratic_Probing_Hash_Table(object):
         else:  # The key was not found
             raise KeyError
 
+    def resize(self, new_size=None):
+        '''Resizes this hashtable and rehashes all key value entries.
+        Should be resized when load facotr exceeds a threshold of 0.75'''
+        if new_size is None:
+            new_size = len(self.buckets) * 2  # Dobule size
+        elif new_size is 0:
+            new_size = len(self.buckets) / 2 # Half size we do this if the buckets are barely filled then we reduce the
+            # number of buckets
+
+        key_value_entries = self.keys_and_values()
+
+        new_size_list = [[] for _ in range(new_size)]
+
+        self.buckets = new_size_list
+
+        self.size = 0
+
+        for key, value in key_value_entries:
+            self.set(key, value)
 
 
 
