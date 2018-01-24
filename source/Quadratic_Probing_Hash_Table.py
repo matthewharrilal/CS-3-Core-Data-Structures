@@ -5,6 +5,9 @@ class Quadratic_Probing_Hash_Table(object):
         self.buckets = [[] for _ in range(init_size)]
         self.size = 0 # Keeps track of the key value entries in each bucket
         self.counter = 0
+        for bucket in self.buckets:
+            if len(bucket) != 0:
+                self.counter += 1
 
     def hash_function(self, key):
         # Formulates hash number from given input
