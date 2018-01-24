@@ -28,4 +28,16 @@ class Quadratic_Probing_Hash_Table(object):
         return bucket_index
 
     def load_factor(self):
-        # Tells us
+        # Tells us the load factor of the hash table comes into use when we have to dynamically resize the array
+        load_factor = self.size / len(self.buckets) # We calculate the load factor by dividing the number of key
+        # value entries by the number of buckets in the has table
+        return load_factor
+
+    def keys_and_values(self):
+        '''Returns a list of all key and value pairs in the hash table'''
+        all_key_value_pairs = []
+        for bucket in self.buckets:
+            for key_value_pair in bucket:
+                all_key_value_pairs.extend(key_value_pair)
+        return all_key_value_pairs
+
