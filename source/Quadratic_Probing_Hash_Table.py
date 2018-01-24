@@ -62,7 +62,6 @@ class Quadratic_Probing_Hash_Table(object):
         if accurate_bucket is None:
             raise ValueError('Contains Function undefined for non existent buckets')
 
-        print()
         if accurate_bucket[0] == key:  # The user is suppose to save values as key value pairs
             # therefore if the first value is not the key then the list does not contain that key value entry
             return True
