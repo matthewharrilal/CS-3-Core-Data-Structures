@@ -41,3 +41,11 @@ class Quadratic_Probing_Hash_Table(object):
                 all_key_value_pairs.extend(key_value_pair)
         return all_key_value_pairs
 
+    def length(self):
+        '''Returns the number of key_value entries by traversing the hash tables buckets'''
+        item_count = 0
+        for key_value_entry in self.keys_and_values():
+            item_count += key_value_entry
+        return item_count
+
+
