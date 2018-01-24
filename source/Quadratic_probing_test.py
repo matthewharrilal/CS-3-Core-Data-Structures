@@ -70,8 +70,19 @@ class QuadraticProbingTesting(unittest.TestCase):
         assert ht.contains('Mom') == True
         assert ht.length() == 1
         assert ht.keys_and_values() == ['Mom', "Mom I love you"]
-        ht.set('Dad', "Dad I love you")
 
+    def test_get(self):
+        ht = Quadratic_Probing_Hash_Table()
+        ht.set('Make School', "Make School is awesome")
+        assert ht.get("Make School") == "Make School is awesome"
 
+    def test_delete(self):
+        ht = Quadratic_Probing_Hash_Table()
+        ht.set("Music", "Music is cool")
+        assert ht.length() == 1
+        assert ht.size == 1
+        assert ht.delete('Music')
+        assert ht.size == 0
+        assert ht.length() == 0
 
 

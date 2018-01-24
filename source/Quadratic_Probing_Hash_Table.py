@@ -109,7 +109,7 @@ class Quadratic_Probing_Hash_Table(object):
         key_value_entry_index_store = [0, 1]
 
         if bucket_at_index[0] == key:
-            del bucket_at_index[key_value_entry_index_store]
+            del bucket_at_index[:]
             self.size -= 1
         else:  # The key was not found
             raise KeyError
