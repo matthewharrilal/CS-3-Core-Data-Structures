@@ -44,15 +44,13 @@ class Quadratic_Probing_Hash_Table(object):
         '''Returns a list of all key and value pairs in the hash table'''
         all_key_value_pairs = []
         for bucket in self.buckets:
-            for key_value_pair in bucket:
-                all_key_value_pairs.extend(key_value_pair)
+            all_key_value_pairs.extend(bucket)
         return all_key_value_pairs
 
     def length(self):
         '''Returns the number of key_value entries by traversing the hash tables buckets'''
         item_count = 0
-        for key_value_entry in self.keys_and_values():
-            item_count += len(key_value_entry)
+        item_count += len(self.keys_and_values()) / 2
         return item_count
 
     def contains(self, key):

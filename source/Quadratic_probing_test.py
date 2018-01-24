@@ -34,7 +34,14 @@ class QuadraticProbingTesting(unittest.TestCase):
     def test_set(self):
         ht.set('dog', "Dogs are Awesome")
         assert ht.size == 1
-        assert ht.keys_and_values() == 1
+        assert ht.length() == 1
+        assert ht.keys_and_values() == ['dog', "Dogs are Awesome"]
+        ht.set('cats', "Cats Are Awesome")
+        assert ht.size == 2
+        assert ht.keys_and_values() == ['dog', "Dogs are Awesome",'cats', "Cats Are Awesome"]
+        assert ht.length() == 2
+
+
 
 
 
