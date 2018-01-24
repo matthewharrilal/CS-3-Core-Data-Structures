@@ -78,5 +78,28 @@ class Quadratic_Probing_Hash_Table(object):
             raise KeyError('Key does not exist')
 
 
+    def set(self, key, value):
+        '''Insert the given key with its associated value'''
+        index = self._bucket_index(key)
+        bucket_at_index = self.buckets[index]
+        key_value_entry_index_store = [0 , 1]
+        key_value_entry = [key, value]
+
+        # Now that we have the bucket that the key was hashed to we have to check if the entry exists already before we
+        # insert
+        if bucket_at_index[0] == key and bucket_at_index[1] == value:
+            for positional_index in key_value_entry_index_store:
+                del bucket_at_index[positional_index]
+            self.size -= 1
+        bucket_at_index.extend(key_value_entry)
+        self.size += 1
+
+        # Now that we have done that we have to check the load factor
+        if self.load_factor() > 0.75:
+            pass
+
+
+
+
 
 
