@@ -120,13 +120,13 @@ class HashTable(object):
             self.size -= 1
         # Insert the new key-value entry into the bucket in either case
         bucket.append((key, value))
+        self.size += 1
         # TODO: Check if the load factor exceeds a threshold such as 0.75
         # Since we want to keep the load factor down so we do not slow down operation to copy the whole hash table to
         # allocate new space if the load factor exceeds a certain threshold then we resize the hash table to keep the
         # load factor down
-        if self.load_factor() >= 0.75:
+        if self.load_factor() > 0.75:
             self._resize()
-        self.size += 1
 
     def delete(self, key):
         """Delete the given key and its associated value, or raise KeyError.
@@ -173,6 +173,8 @@ class HashTable(object):
         # and we will increment or decrement accordingly
 
         self.size = 0
+
+        print(len(self.buckets))
 
         # So the current status we have the correct number of buckets and empty linked lists in them therefore we have
         # assign the data that was in them before that to the new hash table
