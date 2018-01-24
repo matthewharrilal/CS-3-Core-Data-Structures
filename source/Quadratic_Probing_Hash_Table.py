@@ -28,6 +28,11 @@ class Quadratic_Probing_Hash_Table(object):
         bucket_index = self.hash_function(self.hash_function(key)) % len(self.buckets)
         return bucket_index
 
+    def return_bucket(self, key):
+        index = self._bucket_index(key)
+        bucket_at_index = self.buckets[index]
+        return bucket_at_index
+
     def load_factor(self):
         # Tells us the load factor of the hash table comes into use when we have to dynamically resize the array
         load_factor = self.size / len(self.buckets) # We calculate the load factor by dividing the number of key
@@ -53,8 +58,7 @@ class Quadratic_Probing_Hash_Table(object):
         '''Returns True if a hash table contains a given key, False if not'''
 
         # Find the bucket that the key is contained in
-        index_of_bucket = self._bucket_index(key)
-        accurate_bucket = self.buckets[index_of_bucket]
+        accurate_bucket = self.return_bucket(key)
 
         if accurate_bucket is None:
             raise ValueError('Contains Function undefined for non existent buckets')
@@ -66,8 +70,7 @@ class Quadratic_Probing_Hash_Table(object):
 
     def get(self, key):
         '''Return the value associated with the given key or r'''
-        index_of_bucket = self._bucket_index(key)  # Getting the index of the bucket
-        bucket_at_index = self.buckets[index_of_bucket]
+        bucket_at_index = self.return_bucket(key)
 
         if bucket_at_index is None:
             raise ValueError('Get function is undefined for buckets that are non existent')
@@ -80,8 +83,7 @@ class Quadratic_Probing_Hash_Table(object):
 
     def set(self, key, value):
         '''Insert the given key with its associated value'''
-        index = self._bucket_index(key)
-        bucket_at_index = self.buckets[index]
+        bucket_at_index = self.return_bucket(key)
         key_value_entry_index_store = [0 , 1]
         key_value_entry = [key, value]
 
@@ -97,6 +99,19 @@ class Quadratic_Probing_Hash_Table(object):
         # Now that we have done that we have to check the load factor
         if self.load_factor() > 0.75:
             pass
+
+    def delete(self, key):
+        '''Delete a key at a given value or raise key error'''
+        bucket_at_index = self.return_bucket(key)
+        key_value_entry_index_store = [0, 1]
+
+        if bucket_at_index[0] == key:
+            del bucket_at_index[key_value_entry_index_store]
+            self.size -= 1
+        else:  # The key was not found
+            raise KeyError
+
+
 
 
 
