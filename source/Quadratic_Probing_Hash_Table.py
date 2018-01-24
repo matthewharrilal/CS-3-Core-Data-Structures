@@ -22,6 +22,10 @@ class Quadratic_Probing_Hash_Table(object):
             return hash_number
 
 
-
     def bucket_index(self, key):
         # Applies formula to find index where key value entry will be assigned
+        bucket_index = self.hash_function(key) % len(self.buckets)
+        return bucket_index
+
+    def load_factor(self):
+        # Tells us
