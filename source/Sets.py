@@ -24,17 +24,27 @@ class Set(object):
 
     def union(self, other_set=HashTable()):
         '''Returns a new set that is the union of this set and the other set'''
-        union_set=None
+        union_set = HashTable()
 
-        # Since we have to return a set that is a union of the current set and the other set than we have to find
-        # the commonalities
+        for self_element in self.hash_table:
+            union_set.set(self_element)
+        for other_set_element in other_set:
+            union_set.set(other_set_element)
+
+        return other_set_element
+
+
+    def intersection(self,other_set=HashTable()):
+        '''Returns a new set that is a intersection of this set and the other set '''
+        intersection_set=None
+
         for element in self.hash_table:
             if other_set.contains(element):
-                union_set = self.add_element(element)
-        return union_set
+                intersection_set = self.add_element(element)
+        return intersection_set
 
-
-
+    def difference(self, other_set=HashTable()):
+        '''Returns a new set that is the difference of this set and the other set'''
 
 
 
