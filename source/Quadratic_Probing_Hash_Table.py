@@ -1,4 +1,11 @@
 
+
+
+''' THE BENEFITS OF QUADRATIC PROBING'''
+'''Avoids clustering when searching for available slots but not immune to it'''
+
+
+
 class Quadratic_Probing_Hash_Table(object):
     def __init__(self, init_size=8):
         '''Initalize the hash table with the given initial size'''
@@ -101,18 +108,18 @@ class Quadratic_Probing_Hash_Table(object):
 
         # Now that we have done that we have to check the load factor
         if self.load_factor() > 0.75:
-            pass
+            self.resize()
 
     def delete(self, key):
         '''Delete a key at a given value or raise key error'''
         bucket_at_index = self.return_bucket(key)
-        key_value_entry_index_store = [0, 1]
-
-        if bucket_at_index[0] == key:
-            del bucket_at_index[:]
-            self.size -= 1
-        else:  # The key was not found
+        if bucket_at_index is None:
             raise KeyError
+        elif bucket_at_index[0] == key:
+            del bucket_at_index[0]
+            del bucket_at_index[0]
+            self.size -= 1
+
 
     def resize(self, new_size=None):
         '''Resizes this hashtable and rehashes all key value entries.

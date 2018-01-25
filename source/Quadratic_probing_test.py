@@ -81,8 +81,19 @@ class QuadraticProbingTesting(unittest.TestCase):
         ht.set("Music", "Music is cool")
         assert ht.length() == 1
         assert ht.size == 1
-        assert ht.delete('Music')
+        ht.delete('Music')
         assert ht.size == 0
         assert ht.length() == 0
+        # TODO Have to implement the error key error cases here
+
+    def test_resize(self):
+        ht = Quadratic_Probing_Hash_Table()
+        assert ht.size == 0
+        assert ht.length() == 0
+        assert len(ht.buckets) == 8
+        ht.set("Matthew", "Harrilal")
+        assert ht.size == 1
+        assert ht.length() == 1
+        assert ht.load_factor() == 0.125
 
 
