@@ -20,6 +20,20 @@ class Set(object):
             raise KeyError
         else:
             self.hash_table.delete(element)
+        # Making tests for something that does not return anything
+
+    def union(self, other_set=HashTable()):
+        '''Returns a new set that is the union of this set and the other set'''
+        union_set=None
+
+        # Since we have to return a set that is a union of the current set and the other set than we have to find
+        # the commonalities
+        for element in self.hash_table:
+            if other_set.contains(element):
+                union_set = self.add_element(element)
+        return union_set
+
+
 
 
 
