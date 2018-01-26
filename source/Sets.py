@@ -1,7 +1,7 @@
 from hashtable import HashTable
 
 class Set(object):
-    def __init__(self, elements=None):
+    def __init__(self, elements=0):
         # We are implementing a set using the hash tables as a backing therefore we implement the hash table with the
         # number of elements that the user is given
         self.hash_table = HashTable(elements)
