@@ -25,3 +25,18 @@ class Set_Test(unittest.TestCase):
         assert instance_set.contains('test') == True
         assert instance_set.contains('random') == False
 
+    def test_remove_element(self):
+        instance_set = Set(4)
+        instance_set.add_element('matthew')
+        instance_set.add_element('harrilal')
+        assert instance_set.size == 2
+        instance_set.remove_element('matthew')
+        assert instance_set.contains('matthew') == False
+        assert instance_set.size == 1
+        assert instance_set.contains('harrilal') == True
+        instance_set.remove_element('harrilal')
+        assert instance_set.size == 0
+        assert instance_set.contains('harrilal') == False
+        assert instance_set.contains('matthew') == False
+
+    def test_
