@@ -26,9 +26,9 @@ class Set(object):
         '''Returns a new set that is the union of this set and the other set'''
         union_set = HashTable()
 
-        for self_element in self.hash_table:
+        for self_element in self.hash_table.values():
             union_set.set(self_element)
-        for other_set_element in other_set:
+        for other_set_element in other_set.values():
             union_set.set(other_set_element)
 
         return other_set_element
@@ -38,13 +38,24 @@ class Set(object):
         '''Returns a new set that is a intersection of this set and the other set '''
         intersection_set=None
 
-        for element in self.hash_table:
+        for element in self.hash_table.values():
             if other_set.contains(element):
                 intersection_set = self.add_element(element)
         return intersection_set
 
     def difference(self, other_set=HashTable()):
         '''Returns a new set that is the difference of this set and the other set'''
+        difference_set= HashTable()
+
+
+        # Iterating through the elements in the hash table and the elements in the second set and checking if the
+        # second set contains any elements that the first set has
+        for element in self.hash_table.values():
+            if element not in other_set.values():
+                # Whatever elements in set A that are not in set B then we append those elements
+                difference_set.set(element)
+        return difference_set
+
 
 
 
