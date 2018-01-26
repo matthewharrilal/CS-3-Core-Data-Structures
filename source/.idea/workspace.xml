@@ -54,7 +54,7 @@
       <file leaf-file-name="hashtable.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hashtable.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="644">
+            <state relative-caret-position="565">
               <caret line="85" column="25" lean-forward="true" selection-start-line="85" selection-start-column="25" selection-end-line="85" selection-end-column="25" />
               <folding />
             </state>
@@ -64,8 +64,8 @@
       <file leaf-file-name="Sets.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Sets.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="686">
-              <caret line="54" column="96" lean-forward="false" selection-start-line="54" selection-start-column="96" selection-end-line="54" selection-end-column="96" />
+            <state relative-caret-position="561">
+              <caret line="67" column="118" lean-forward="false" selection-start-line="67" selection-start-column="118" selection-end-line="67" selection-end-column="118" />
               <folding />
             </state>
           </provider>
@@ -131,6 +131,8 @@
       <find>print</find>
       <find>def test_set</find>
       <find>def set</find>
+      <find>.values</find>
+      <find>.keys</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -539,7 +541,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hashtable.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="644">
+        <state relative-caret-position="565">
           <caret line="85" column="25" lean-forward="true" selection-start-line="85" selection-start-column="25" selection-end-line="85" selection-end-column="25" />
           <folding />
         </state>
@@ -547,8 +549,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Sets.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="686">
-          <caret line="54" column="96" lean-forward="false" selection-start-line="54" selection-start-column="96" selection-end-line="54" selection-end-column="96" />
+        <state relative-caret-position="561">
+          <caret line="67" column="118" lean-forward="false" selection-start-line="67" selection-start-column="118" selection-end-line="67" selection-end-column="118" />
           <folding />
         </state>
       </provider>
