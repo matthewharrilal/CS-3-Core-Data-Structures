@@ -39,4 +39,14 @@ class Set_Test(unittest.TestCase):
         assert instance_set.contains('harrilal') == False
         assert instance_set.contains('matthew') == False
 
-    def test_
+    def test_union(self):
+        first_set = Set(4)
+        second_set = Set(4)
+        first_set.add_element('matthew')
+        first_set.add_element('castro')
+        first_set.add_element('harrilal')
+        second_set.add_element('make')
+        second_set.add_element('school')
+        second_set.add_element('programmers')
+        union_set = first_set.union(second_set)
+        assert union_set.contains('matthew') == False

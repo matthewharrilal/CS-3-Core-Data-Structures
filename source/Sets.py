@@ -24,16 +24,19 @@ class Set(object):
         # Making tests for something that does not return anything
         self.size -= 1
 
-    def union(self, other_set=HashTable()):
+    def union(self, other_set):
         '''Returns a new set that is the union of this set and the other set'''
         union_set = HashTable()
 
-        for self_element in self.hash_table.keys():
-            union_set.set(self_element)
-        for other_set_element in other_set.keys():
-            union_set.set(other_set_element)
 
-        return other_set_element
+        for self_element in self.hash_table.keys():
+            self_element_existence_value = self.contains(self_element)
+            union_set.set(self_element, self_element_existence_value)
+        for other_set_element in other_set.keys():
+            other_set_element_existence_value = self.contains(other_set_element)
+            union_set.set(other_set_element, other_set_element_existence_value)
+
+        return union_set
 
 
     def intersection(self,other_set=HashTable()):
