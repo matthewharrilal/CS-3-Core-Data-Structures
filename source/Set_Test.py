@@ -61,9 +61,23 @@ class Set_Test(unittest.TestCase):
         assert first_set.size == 3
         assert second_set.size == 2
         intersection_set = first_set.intersection(second_set)
-        assert intersection_set.contains("Matthew") == True
-        assert intersection_set.contains("Castro") == False
-        assert intersection_set.contains("Harrilal") == True
+        assert intersection_set.contains("Matthew") == False
+        assert intersection_set.contains("Castro") == True
+        assert intersection_set.contains("Harrilal") == False
 
+    def test_difference(self):
+        first_set = Set(4)
+        second_set = Set(4)
+        first_set.add_element("Matthew")
+        first_set.add_element("Castro")
+        first_set.add_element("Harrilal")
+        second_set.add_element("Corey")
+        second_set.add_element("Castro")
+        second_set.add_element("Harrilal")
+        difference_set = first_set.difference(second_set)
+        assert difference_set.size == 1
+        assert difference_set.contains("Matthew") == True
+        assert difference_set.contains("Castro") == False
+        assert difference_set.contains("Harrilal") == False
 
 

@@ -54,21 +54,19 @@ class Set(object):
 
         for element in self.get_keys():
             if other_set.contains(element):
-                continue
-            else:
                 intersection_set.add_element(element)
         return intersection_set
 
     def difference(self, other_set):
         '''Returns a new set that is the difference of this set and the other set'''
-        difference_set = HashTable()
+        difference_set = Set(4)
 
         # Iterating through the elements in the hash table and the elements in the second set and checking if the
         # second set contains any elements that the first set has
-        for element in self.hash_table.keys():
+        for element in self.get_keys():
             if element not in other_set.get_keys():
                 # Whatever elements in set A that are not in set B then we append those elements
-                difference_set.set(element)
+                difference_set.add_element(element)
         return difference_set
 
     def subset(self, other_set):
