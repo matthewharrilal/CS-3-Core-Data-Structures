@@ -44,9 +44,26 @@ class Set_Test(unittest.TestCase):
         second_set = Set(4)
         first_set.add_element('matthew')
         first_set.add_element('castro')
-        first_set.add_element('harrilal')
-        second_set.add_element('make')
-        second_set.add_element('school')
         second_set.add_element('programmers')
         union_set = first_set.union(second_set)
-        assert union_set.contains('matthew') == False
+        assert union_set.contains('matthew') == True
+        assert union_set.contains('castro') == True
+        assert union_set.contains("programmers") == True
+
+    def test_intersection(self):
+        first_set = Set(4)
+        second_set = Set(4)
+        first_set.add_element("Matthew")
+        first_set.add_element("Castro")
+        first_set.add_element("Harrilal")
+        second_set.add_element("Corey")
+        second_set.add_element("Castro")
+        assert first_set.size == 3
+        assert second_set.size == 2
+        intersection_set = first_set.intersection(second_set)
+        assert intersection_set.contains("Matthew") == True
+        assert intersection_set.contains("Castro") == False
+        assert intersection_set.contains("Harrilal") == True
+
+
+

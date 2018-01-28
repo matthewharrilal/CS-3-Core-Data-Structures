@@ -24,44 +24,54 @@ class Set(object):
         # Making tests for something that does not return anything
         self.size -= 1
 
+    def get_keys(self):
+        return self.hash_table.keys()
+
     def union(self, other_set):
         '''Returns a new set that is the union of this set and the other set'''
-        union_set = HashTable()
+        # temp_set = self.hash_table
+        # union_set = self.hash_table
+        # for self_element in other_set.get_keys():
+        #     if not union_set.contains(self_element):
+        #         union_set.add_element(self_element)
+        # self.hash_table = temp_set
+        # return union_set
 
+        union_set = Set(4)
 
         for self_element in self.hash_table.keys():
-            self_element_existence_value = self.contains(self_element)
-            union_set.set(self_element, self_element_existence_value)
-        for other_set_element in other_set.keys():
-            other_set_element_existence_value = self.contains(other_set_element)
-            union_set.set(other_set_element, other_set_element_existence_value)
+            union_set.add_element(self_element)
+
+        for other_set_element in other_set.get_keys():
+            union_set.add_element(other_set_element)
 
         return union_set
 
 
-    def intersection(self,other_set=HashTable()):
+    def intersection(self,other_set):
         '''Returns a new set that is a intersection of this set and the other set '''
-        intersection_set=None
+        intersection_set = Set(4)
 
-        for element in self.hash_table.keys():
+        for element in self.get_keys():
             if other_set.contains(element):
-                intersection_set = self.add_element(element)
+                continue
+            else:
+                intersection_set.add_element(element)
         return intersection_set
 
-    def difference(self, other_set=HashTable()):
+    def difference(self, other_set):
         '''Returns a new set that is the difference of this set and the other set'''
-        difference_set= HashTable()
-
+        difference_set = HashTable()
 
         # Iterating through the elements in the hash table and the elements in the second set and checking if the
         # second set contains any elements that the first set has
         for element in self.hash_table.keys():
-            if element not in other_set.keys():
+            if element not in other_set.get_keys():
                 # Whatever elements in set A that are not in set B then we append those elements
                 difference_set.set(element)
         return difference_set
 
-    def subset(self, other_set=HashTable()):
+    def subset(self, other_set):
         '''Return a boolean value indicating whether other set is a subset of this set'''
 
         for element in other_set.keys():
@@ -73,6 +83,10 @@ class Set(object):
             else:
                 return False
         return True
+if __name__ == '__main__':
+    test_set = Set(5)
+    test_set.add_element('key')
+    print(test_set.get_keys())
 
 
 
