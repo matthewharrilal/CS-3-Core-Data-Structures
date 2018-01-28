@@ -71,15 +71,15 @@ class Set(object):
 
     def subset(self, other_set):
         '''Return a boolean value indicating whether other set is a subset of this set'''
+        if len(self.get_keys()) > len(other_set.get_keys()):
+            return False
 
-        for element in other_set.keys():
-            if self.hash_table.contains(element):
+        for element in other_set.get_keys():
+            if self.contains(element):
                 # This allows us to continue the iteration even after the condition is satisfied
                 # But the reason we need to do this is due to the reason even if we are iterating through using a for
                 # loop we have to return a boolean value therefore the first match will cause a return so we continue
                 continue
-            else:
-                return False
         return True
 if __name__ == '__main__':
     test_set = Set(5)

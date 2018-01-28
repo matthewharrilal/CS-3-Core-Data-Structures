@@ -80,4 +80,21 @@ class Set_Test(unittest.TestCase):
         assert difference_set.contains("Castro") == False
         assert difference_set.contains("Harrilal") == False
 
+    def test_subset(self):
+        first_set = Set(4)
+        second_set = Set(4)
+        first_set.add_element("Matthew")
+        first_set.add_element("Castro")
+        first_set.add_element("Harrilal")
+        second_set.add_element("Matthew")
+        second_set.add_element("Castro")
+        assert second_set.subset(first_set) == True
+        assert first_set.subset(second_set) == False
+        second_set.add_element("Harrilal")
+        second_set.add_element("Nerd")
+        assert second_set.subset(first_set) == False
+        assert first_set.subset(second_set) == True
+
+
+
 
