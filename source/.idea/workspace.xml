@@ -11,11 +11,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="doubly_linked_list.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/doubly_linked_list.py">
+      <file leaf-file-name="linkedlist.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/linkedlist.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1760">
-              <caret line="110" column="32" lean-forward="false" selection-start-line="110" selection-start-column="32" selection-end-line="110" selection-end-column="32" />
+            <state relative-caret-position="1528">
+              <caret line="168" column="9" lean-forward="false" selection-start-line="168" selection-start-column="9" selection-end-line="168" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -76,8 +76,8 @@
       <file leaf-file-name="binarytree.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/binarytree.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="589">
-              <caret line="49" column="26" lean-forward="false" selection-start-line="49" selection-start-column="26" selection-end-line="49" selection-end-column="26" />
+            <state relative-caret-position="475">
+              <caret line="95" column="31" lean-forward="false" selection-start-line="95" selection-start-column="31" selection-end-line="95" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -86,10 +86,10 @@
       <file leaf-file-name="binarytree_test.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/binarytree_test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+            <state relative-caret-position="-1646">
+              <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
               <folding>
-                <element signature="e#68#106#0" expanded="true" />
+                <element signature="e#10#65#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -142,7 +142,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/linkedlist.py" />
         <option value="$USER_HOME$/PycharmProjects/LeetCodeChallenges/LeetCodeChallengesDay1.py" />
         <option value="$PROJECT_DIR$/double_ended_queue_tesy.py" />
         <option value="$PROJECT_DIR$/doubly_linked_list.py" />
@@ -156,6 +155,7 @@
         <option value="$PROJECT_DIR$/Sets.py" />
         <option value="$PROJECT_DIR$/hashtable.py" />
         <option value="$PROJECT_DIR$/binarytree_test.py" />
+        <option value="$PROJECT_DIR$/linkedlist.py" />
         <option value="$PROJECT_DIR$/binarytree.py" />
       </list>
     </option>
@@ -624,14 +624,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/linkedlist.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2688">
-          <caret line="168" column="8" lean-forward="false" selection-start-line="168" selection-start-column="8" selection-end-line="168" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Quadratic_Probing_Hash_Table.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="64">
@@ -709,20 +701,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/linkedlist.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1528">
+          <caret line="168" column="9" lean-forward="false" selection-start-line="168" selection-start-column="9" selection-end-line="168" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/binarytree_test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+        <state relative-caret-position="-1646">
+          <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
           <folding>
-            <element signature="e#68#106#0" expanded="true" />
+            <element signature="e#10#65#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/binarytree.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="589">
-          <caret line="49" column="26" lean-forward="false" selection-start-line="49" selection-start-column="26" selection-end-line="49" selection-end-column="26" />
+        <state relative-caret-position="475">
+          <caret line="95" column="31" lean-forward="false" selection-start-line="95" selection-start-column="31" selection-end-line="95" selection-end-column="31" />
           <folding />
         </state>
       </provider>

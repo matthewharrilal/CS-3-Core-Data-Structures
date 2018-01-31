@@ -1,7 +1,7 @@
 #!python
 
-# from binarytree import BinarySearchTree, BinaryTreeNode
-from binarytree import  BinaryTreeNode
+from binarytree import BinarySearchTree, BinaryTreeNode
+# from binarytree import  BinaryTreeNode
 import unittest
 
 
@@ -48,7 +48,7 @@ class BinaryTreeNodeTest(unittest.TestCase):
         node.right = None
         assert node.is_branch() is False
 
-
+#
 # class BinarySearchTreeTest(unittest.TestCase):
 #
 #     def test_init(self):
@@ -64,7 +64,7 @@ class BinaryTreeNodeTest(unittest.TestCase):
 #         assert tree.root.right.data == 3
 #         assert tree.size == 3
 #         assert tree.is_empty() is False
-#
+
 #     def test_init_with_list_of_strings(self):
 #         tree = BinarySearchTree(['B', 'A', 'C'])
 #         assert tree.root.data == 'B'

@@ -166,7 +166,7 @@ class LinkedList(object):
         self.head = new_node
         self.size += 1
 
-    def find(self, quality):
+    def  find(self, quality):
         """Return an item from this linked list satisfying the given quality.
         Best case running time: Omega(1) if item is near the head of the list.
         Worst case running time: O(n) if item is near the tail of the list or

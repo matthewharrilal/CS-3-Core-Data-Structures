@@ -50,49 +50,85 @@ class BinaryTreeNode(object):
         return node_height
 
 
-# class BinarySearchTree(object):
+class BinarySearchTree(object):
+
+    def __init__(self, items=None):
+        """Initialize this binary search tree and insert the given items."""
+        self.root = None
+        self.size = 0
+        if items is not None:
+            for item in items:
+                self.insert(item)
+
+    def __repr__(self):
+        """Return a string representation of this binary search tree."""
+        return 'BinarySearchTree({} nodes)'.format(self.size)
+
+    def is_empty(self):
+        """Return True if this binary search tree is empty (has no nodes)."""
+        return self.root is None
+
+    def height(self):
+        """Return the height of this tree (the number of edges on the longest
+        downward path from this tree's root node to a descendant leaf node).
+        TODO: Best and worst case running time: ??? under what conditions?"""
+        # TODO: Check if root node has a value and if so calculate its height
+
+        if self.root is None:
+            self.size = 0
+            return self.size
+        else:
+            return self.size
+
+    def tree_is_empty(self):
+        if self.root is None:
+            return True
+        return False
+
+
+    def contains(self, item):
+        """Return True if this binary search tree contains the given item.
+        TODO: Best case running time: ??? under what conditions?
+        TODO: Worst case running time: ??? under what conditions?"""
+
+        if self.tree_is_empty() == True:
+            return False
+        return self.search(item)
 #
-#     def __init__(self, items=None):
-#         """Initialize this binary search tree and insert the given items."""
-#         self.root = None
-#         self.size = 0
-#         if items is not None:
-#             for item in items:
-#                 self.insert(item)
-#
-#     def __repr__(self):
-#         """Return a string representation of this binary search tree."""
-#         return 'BinarySearchTree({} nodes)'.format(self.size)
-#
-#     def is_empty(self):
-#         """Return True if this binary search tree is empty (has no nodes)."""
-#         return self.root is None
-#
-#     def height(self):
-#         """Return the height of this tree (the number of edges on the longest
-#         downward path from this tree's root node to a descendant leaf node).
-#         TODO: Best and worst case running time: ??? under what conditions?"""
-#         # TODO: Check if root node has a value and if so calculate its height
-#         ...
-#
-#     def contains(self, item):
-#         """Return True if this binary search tree contains the given item.
-#         TODO: Best case running time: ??? under what conditions?
-#         TODO: Worst case running time: ??? under what conditions?"""
-#         # Find a node with the given item, if any
-#         node = self._find_node(item)
-#         # Return True if a node was found, or False
-#         return node is not None
-#
-#     def search(self, item):
-#         """Return an item in this binary search tree matching the given item,
-#         or None if the given item is not found.
-#         TODO: Best case running time: ??? under what conditions?
-#         TODO: Worst case running time: ??? under what conditions?"""
-#         # Find a node with the given item, if any
-#         node = self._find_node(item)
-#         # TODO: Return the node's data if found, or None
-#         return node.data if ... else None
+    def search(self, item):
+        """Return an item in this binary search tree matching the given item,
+        or None if the given item is not found.
+        TODO: Best case running time: ??? under what conditions?
+        TODO: Worst case running time: ??? under what conditions?"""
+        # Find a node with the given item, if any
+        # node = self._find_node(item)
+        # # TODO: Return the node's data if found, or None
+        # return node.data if ... else None
+
+        if self.tree_is_empty() is True:
+            return None
+
+        tree_size = self.size
+
+        current_node = self.root
+
+        if item == current_node.data:
+            return current_node.data
+
+        while tree_size > 0:
+            if item > current_node.data:
+                current_node = current_node.right
+
+            elif item > current_node.data:
+                current_node = current_node.left
+
+            elif item == current_node.data:
+                return current_node.data
+
+            tree_size -= 1
+
+        return None
+
 #
 #     def insert(self, item):
 #         """Insert the given item in order into this binary search tree.
