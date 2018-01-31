@@ -73,22 +73,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="binarytree.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="binarytree.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/binarytree.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="77">
-              <caret line="275" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="275" selection-end-column="0" />
+            <state relative-caret-position="589">
+              <caret line="49" column="26" lean-forward="false" selection-start-line="49" selection-start-column="26" selection-end-line="49" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="binarytree_test.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="binarytree_test.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/binarytree_test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="48">
-              <caret line="3" column="23" lean-forward="false" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
-              <folding />
+            <state relative-caret-position="405">
+              <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+              <folding>
+                <element signature="e#68#106#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -153,8 +155,8 @@
         <option value="$PROJECT_DIR$/Set_Test.py" />
         <option value="$PROJECT_DIR$/Sets.py" />
         <option value="$PROJECT_DIR$/hashtable.py" />
-        <option value="$PROJECT_DIR$/binarytree.py" />
         <option value="$PROJECT_DIR$/binarytree_test.py" />
+        <option value="$PROJECT_DIR$/binarytree.py" />
       </list>
     </option>
   </component>
@@ -707,18 +709,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/binarytree.py">
+    <entry file="file://$PROJECT_DIR$/binarytree_test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="77">
-          <caret line="275" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="275" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="405">
+          <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+          <folding>
+            <element signature="e#68#106#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/binarytree_test.py">
+    <entry file="file://$PROJECT_DIR$/binarytree.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="3" column="23" lean-forward="false" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
+        <state relative-caret-position="589">
+          <caret line="49" column="26" lean-forward="false" selection-start-line="49" selection-start-column="26" selection-end-line="49" selection-end-column="26" />
           <folding />
         </state>
       </provider>

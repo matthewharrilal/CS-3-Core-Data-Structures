@@ -31,24 +31,24 @@ class BinaryTreeNodeTest(unittest.TestCase):
         node.right = None
         assert node.is_leaf() is True
 
-#     def test_is_branch(self):
-#         # Create node with no children
-#         node = BinaryTreeNode(2)
-#         assert node.is_branch() is False
-#         # Attach left child node
-#         node.left = BinaryTreeNode(1)
-#         assert node.is_branch() is True
-#         # Attach right child node
-#         node.right = BinaryTreeNode(3)
-#         assert node.is_branch() is True
-#         # Detach left child node
-#         node.left = None
-#         assert node.is_branch() is True
-#         # Detach right child node
-#         node.right = None
-#         assert node.is_branch() is False
-#
-#
+    def test_is_branch(self):
+        # Create node with no children
+        node = BinaryTreeNode(2)
+        assert node.is_branch() is False
+        # Attach left child node
+        node.left = BinaryTreeNode(1)
+        assert node.is_branch() is True
+        # Attach right child node
+        node.right = BinaryTreeNode(3)
+        assert node.is_branch() is True
+        # Detach left child node
+        node.left = None
+        assert node.is_branch() is True
+        # Detach right child node
+        node.right = None
+        assert node.is_branch() is False
+
+
 # class BinarySearchTreeTest(unittest.TestCase):
 #
 #     def test_init(self):
