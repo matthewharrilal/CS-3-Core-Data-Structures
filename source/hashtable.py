@@ -75,7 +75,7 @@ class HashTable(object):
             item_count += bucket.length()
         return sum(bucket.length() for bucket in self.buckets)
 
-    def contains(self, key):
+    def  contains(self, key):
         """Return True if this hash table contains the given key, or False.
         Best case running time: ??? under what conditions? [TODO]
         Worst case running time: ??? under what conditions? [TODO]"""

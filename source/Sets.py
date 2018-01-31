@@ -80,6 +80,8 @@ class Set(object):
                 # But the reason we need to do this is due to the reason even if we are iterating through using a for
                 # loop we have to return a boolean value therefore the first match will cause a return so we continue
                 continue
+            else:
+                return False
         return True
 if __name__ == '__main__':
     test_set = Set(5)
