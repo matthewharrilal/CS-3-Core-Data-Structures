@@ -101,14 +101,12 @@ class BinarySearchTree(object):
 
         current_node = self.root
 
-        at_leaf = False
-
         if item == current_node.data:
             return current_node.data
 
-        while at_leaf is False:
+        while current_node is not None:
 
-            if current_node.is_leaf() is True:
+            if current_node.is_leaf() is True and current_node.data != item:
                 return None
 
             elif item > current_node.data:
@@ -158,17 +156,18 @@ class BinarySearchTree(object):
         parent = None
 
         # No tree is infinite therefore the very bottom level node will be a leaf
-        at_leaf = False
+        # at_leaf = False
 
 
         # at leaf is false will always be true but we will implement a condition that can bring us out
-        while at_leaf is False:
+        while current_node is not None:
 
             # So if on the first iteration if the current nodes data is equal to the item then we return the parent
             # is the root node but if its not then we continue and the parent node will be eqaul to the one above the
             # the current node
             if current_node.data == item:
                 return parent
+
 
             # If the current nodes data is less than the item then we set the parent node to the current node and move
             # the current node to the right
