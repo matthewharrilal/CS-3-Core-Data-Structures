@@ -160,15 +160,23 @@ class BinarySearchTreeTest(unittest.TestCase):
         assert tree.root.left.right.data == 3
         assert tree.root.right.left.data == 5
         assert tree.root.right.right.data == 7
+
+    # def test__traverse_in_order_recursive(self):
+    #     items = ["C", "A", "R"]
+    #     tree = BinarySearchTree()
+    #     for item in items:
+    #         tree.insert(item)
+    #
+    #     assert tree._traverse_in_order_recursive(item) == ["A","C", "R"]
 #
 #     # This space intentionally left blank (please do not delete this comment)
 #
-#     def test_items_in_order_with_3_strings(self):
-#         # Create a complete binary search tree of 3 strings in level-order
-#         items = ['B', 'A', 'C']
-#         tree = BinarySearchTree(items)
-#         # Ensure the in-order traversal of tree items is ordered correctly
-#         assert tree.items_in_order() == ['A', 'B', 'C']
+    def test_items_in_order_with_3_strings(self):
+        # Create a complete binary search tree of 3 strings in level-order
+        items = ['B', 'A', 'C']
+        tree = BinarySearchTree(items)
+        # Ensure the in-order traversal of tree items is ordered correctly
+        assert tree.items_in_order() == ['A', 'B', 'C']
 #
 #     def test_items_pre_order_with_3_strings(self):
 #         # Create a complete binary search tree of 3 strings in level-order
