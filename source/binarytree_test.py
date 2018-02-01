@@ -49,14 +49,20 @@ class BinaryTreeNodeTest(unittest.TestCase):
         assert node.is_branch() is False
 
 #
-# class BinarySearchTreeTest(unittest.TestCase):
-#
-#     def test_init(self):
-#         tree = BinarySearchTree()
-#         assert tree.root is None
-#         assert tree.size == 0
-#         assert tree.is_empty() is True
-#
+class BinarySearchTreeTest(unittest.TestCase):
+
+    def test_init(self):
+        tree = BinarySearchTree()
+        assert tree.root is None
+        assert tree.size == 0
+        assert tree.is_empty() is True
+
+    def test_tree_is_empty(self):
+        tree = BinarySearchTree()
+        assert tree.tree_is_empty() == True
+
+
+
 #     def test_init_with_list(self):
 #         tree = BinarySearchTree([2, 1, 3])
 #         assert tree.root.data == 2

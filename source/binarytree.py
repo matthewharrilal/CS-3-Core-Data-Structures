@@ -29,25 +29,16 @@ class BinaryTreeNode(object):
             return False
         return True
 
-
     def height(self):
-        """Return the height of this node (the number of edges on the longest
-        downward path from this node to a descendant leaf node).
-        TODO: Best and worst case running time: ??? under what conditions?"""
-        # # TODO: Check if left child has a value and if so calculate its height
-        # ...
-        # # TODO: Check if right child has a value and if so calculate its height
-        # ...
-        # # Return one more than the greater of the left height and right height
-        # ...
+        """Return the number of edges on the longest downward path from this
+        node to a descendant leaf node"""
 
-        node_height = 0
+        # The reason this works is due to the fact that recursive calls dont remember the past calls until it works
+        # its way back up
 
-        if self.is_leaf() == True:
-            return node_height
-        elif self.left is not None or self.right is not None:
-            node_height += 1
-        return node_height
+        if not self.root:
+            return 0
+        return 1 + max(self.height(self.left), self.height(self.right))
 
 
 class BinarySearchTree(object):
@@ -91,7 +82,7 @@ class BinarySearchTree(object):
         TODO: Best case running time: ??? under what conditions?
         TODO: Worst case running time: ??? under what conditions?"""
 
-        if self.tree_is_empty() == True:
+        if self.tree_is_empty() is True:
             return False
         return self.search(item)
 #
@@ -108,103 +99,91 @@ class BinarySearchTree(object):
         if self.tree_is_empty() is True:
             return None
 
-        tree_size = self.size
-
         current_node = self.root
+
+        at_leaf = False
 
         if item == current_node.data:
             return current_node.data
 
-        while tree_size > 0:
-            if item > current_node.data:
-                current_node = current_node.right
+        while at_leaf is False:
+
+            if current_node.is_leaf() is True:
+                return None
 
             elif item > current_node.data:
+                current_node = current_node.right
+
+            elif item < current_node.data:
                 current_node = current_node.left
 
             elif item == current_node.data:
                 return current_node.data
 
-            tree_size -= 1
 
-        return None
+    def insert(self, item):
+
+        """Insert the given item in order into this binary search tree.
+        TODO: Best case running time: ??? under what conditions?
+        TODO: Worst case running time: ??? under what conditions?"""
+
+        if self.tree_is_empty():
+            # If the tree is empty and since we know a binary tree starts with the root node the item that the user
+            # wants to insert becomes the root node
+            self.root = BinaryTreeNode(item)
+            self.size += 1
+            return
+
+        parent_node = self._find_parent_node(item)
+
+        if item > parent_node.data:
+            parent_node.right = BinaryTreeNode(item)
+
+        elif item < parent_node.data:
+            parent_node.left = BinaryTreeNode(item)
+
+        self.size += 1
 
 #
-#     def insert(self, item):
-#         """Insert the given item in order into this binary search tree.
-#         TODO: Best case running time: ??? under what conditions?
-#         TODO: Worst case running time: ??? under what conditions?"""
-#         # Handle the case where the tree is empty
-#         if self.is_empty():
-#             # TODO: Create a new root node
-#             self.root = ...
-#             # TODO: Increase the tree size
-#             self.size ...
-#             return
-#         # Find the parent node of where the given item should be inserted
-#         parent = self._find_parent_node(item)
-#         # TODO: Check if the given item should be inserted left of parent node
-#         if ...:
-#             # TODO: Create a new node and set the parent's left child
-#             parent.left = ...
-#         # TODO: Check if the given item should be inserted right of parent node
-#         elif ...:
-#             # TODO: Create a new node and set the parent's right child
-#             parent.right = ...
-#         # TODO: Increase the tree size
-#         self.size ...
-#
-#     def _find_node(self, item):
-#         """Return the node containing the given item in this binary search tree,
-#         or None if the given item is not found.
-#         TODO: Best case running time: ??? under what conditions?
-#         TODO: Worst case running time: ??? under what conditions?"""
-#         # Start with the root node
-#         node = self.root
-#         # Loop until we descend past the closest leaf node
-#         while node is not None:
-#             # TODO: Check if the given item matches the node's data
-#             if ...:
-#                 # Return the found node
-#                 return node
-#             # TODO: Check if the given item is less than the node's data
-#             elif ...:
-#                 # TODO: Descend to the node's left child
-#                 node = ...
-#             # TODO: Check if the given item is greater than the node's data
-#             elif ...:
-#                 # TODO: Descend to the node's right child
-#                 node = ...
-#         # Not found
-#         return None
-#
-#     def _find_parent_node(self, item):
-#         """Return the parent node of the node containing the given item
-#         (or the parent node of where the given item would be if inserted)
-#         in this tree, or None if this tree is empty or has only a root node.
-#         TODO: Best case running time: ??? under what conditions?
-#         TODO: Worst case running time: ??? under what conditions?"""
-#         # Start with the root node and keep track of its parent
-#         node = self.root
-#         parent = None
-#         # Loop until we descend past the closest leaf node
-#         while node is not None:
-#             # TODO: Check if the given item matches the node's data
-#             if ...:
-#                 # Return the parent of the found node
-#                 return parent
-#             # TODO: Check if the given item is less than the node's data
-#             elif ...:
-#                 # TODO: Update the parent and descend to the node's left child
-#                 parent = node
-#                 node = ...
-#             # TODO: Check if the given item is greater than the node's data
-#             elif ...:
-#                 # TODO: Update the parent and descend to the node's right child
-#                 parent = node
-#                 node = ...
-#         # Not found
-#         return parent
+    def _find_parent_node(self, item):
+
+        # Start with the root node and keep track of its parent
+        current_node = self.root
+
+        # Checking if the root node is the item the user is looking for or if the tree is empty then we return None
+        # before we start iterating
+        if current_node.data == item or self.tree_is_empty() is True:
+            return None
+
+        parent = None
+
+        # No tree is infinite therefore the very bottom level node will be a leaf
+        at_leaf = False
+
+
+        # at leaf is false will always be true but we will implement a condition that can bring us out
+        while at_leaf is False:
+
+            # So if on the first iteration if the current nodes data is equal to the item then we return the parent
+            # is the root node but if its not then we continue and the parent node will be eqaul to the one above the
+            # the current node
+            if current_node.data == item:
+                return parent
+
+            # If the current nodes data is less than the item then we set the parent node to the current node and move
+            # the current node to the right
+            elif item > current_node.data:
+                parent = current_node
+                current_node = current_node.right
+
+            elif item < current_node.data:
+                parent = current_node
+                current_node = current_node.left
+
+        return parent
+
+
+
 #
 #     # This space intentionally left blank (please do not delete this comment)
 #
