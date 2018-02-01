@@ -192,85 +192,22 @@ class BinarySearchTree(object):
         # Return in-order list of all items in tree
         return items
 
-        # current_node = self.root
-        #
-        # if current_node.is_empty() is True:
-        #     return None
-        #
-        # while current_node is not None:
-        #     parent_node = self._find_parent_node(current_node.data)
-        #
-        #     if parent_node.left.is_leaf() is True:
-        #         current_node = parent_node.right
-        #
-        #     elif parent_node.left.is_leaf() is False:
-        #         parent_node.left = current_node
-        #         current_node = current_node.left
-        #
-        #     if parent_node.right.is_leaf() is True and parent_node.right is not None:
-        #
-        #     if current_node.left.is_leaf() is True:
-        #         current_node = parent_node
-        #         parent_node.right = current_node
-        #
-        #     elif current_node.left.is_leaf() is False:
-        #         current_node = current_node.left
-        #
-        #     if current_node.is_leaf() is True:
 
 
-    # def _traverse_in_order_recursive(self, node, visit):
-    def _traverse_in_order_recursive(self, node, in_order_list=None):
+    def _traverse_in_order_recursive(self, node, visit):
         """Traverse this binary tree with recursive in-order traversal (DFS).
         Start at the given node and visit each node with the given function.
         TODO: Running time: ??? Why and under what conditions?
         TODO: Memory usage: ??? Why and under what conditions?"""
-        # TODO: Traverse left subtree, if it exists
-        ...
-        # TODO: Visit this node's data with given function
-        ...
-        # TODO: Traverse right subtree, if it exists
-        ...
+        # Traverse left subtree, if it exists
+        if node.left is not None:
+            self._traverse_in_order_recursive(node.left, visit)
+        #  Visit this node's data with given function
+        visit(node.data)
+        # Traverse right subtree, if it exists
+        if node.right is not None:
+            self._traverse_in_order_recursive(node.right, visit)
 
-        # print(in_order_list)
-        #
-        # node = self.root
-        #
-        # if in_order_list is None:
-        #     in_order_list = []
-        #
-        # if self.tree_is_empty() is True:
-        #     return None
-        #
-        # while node is not None:
-        #
-        #     parent_node = self._find_parent_node(node.data)
-        #
-        #     if node is self.root and node.is_leaf() is True:
-        #         return None
-        #     elif node is self.root:
-        #         node = node.left
-        #
-        #
-        #
-        #     if node.left.is_leaf() is True:
-        #         in_order_list.append(node.data)
-        #         node = parent_node
-        #
-        #     elif node.left.is_leaf is False:
-        #         node = node.left
-        #
-        #     if node is parent_node:
-        #         node = node.right
-        #
-        #     if node.right.is_leaf() is True:
-        #         in_order_list.append(node.data)
-        #         node = self.root
-        #
-        #     elif node.right.is_leaf() is False:
-        #         node = node.left
-        #
-        # return self._traverse_in_order_recursive(node, in_order_list)
 
     def _traverse_in_order_iterative(self, node, visit):
         """Traverse this binary tree with iterative in-order traversal (DFS).
