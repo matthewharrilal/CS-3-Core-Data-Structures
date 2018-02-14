@@ -188,7 +188,7 @@ class BinarySearchTreeTest(unittest.TestCase):
         tree = BinarySearchTree(items)
         # Ensure the level-order traversal of tree items is ordered correctly
         assert tree.items_level_order() == ['B', 'A', 'C']
-
+    #
     def test_items_in_order_with_7_numbers(self):
         # Create a complete binary search tree of 7 items in level-order
         items = [4, 2, 6, 1, 3, 5, 7]
@@ -202,6 +202,13 @@ class BinarySearchTreeTest(unittest.TestCase):
         tree = BinarySearchTree(items)
         # Ensure the pre-order traversal of tree items is ordered correctly
         assert tree.items_pre_order() == [4, 2, 1, 3, 6, 5, 7]
+
+    def test_items_pre_order_iterative(self):
+        # Create a complete binary search tree of 7 items in level-order
+        items = [4, 2, 6, 1, 3, 5, 7]
+        tree = BinarySearchTree(items)
+        # Ensure the pre-order traversal of tree items is ordered correctly
+        assert tree.items_pre_order_iterative() == [4, 2, 1, 3, 6, 5, 7]
 
     def test_items_post_order_with_7_numbers(self):
         # Create a complete binary search tree of 7 items in level-order
