@@ -55,7 +55,7 @@ def quicksort(items):
     # Now that we have the partitions function that arranges the left and right values based off of the pivot we have
     # to sort the items now
 
-    if len(items) <= 2:
+    if len(items) <= 1:
         return
 
     lesser_list = []
@@ -65,7 +65,7 @@ def quicksort(items):
     for item in items[1:]:
         if item >= items[pivot]:
             lesser_list.append(item)
-        elif item < items[pivot]:
+        else:
             greater_list.append(item)
     quicksort(lesser_list)
     quicksort(greater_list)
